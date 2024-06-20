@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block title %}
-Complaints|WMS
+Schedule Collection|WMS
 {% endblock title %}
 
 {% block body %}
@@ -26,37 +26,33 @@ Complaints|WMS
 
 <div class="col-md-6">
 
-<h2 class="text-center bg-success text-white">Complaint</h2>
+<h2 class="text-center bg-success text-white">Schedule Waste Collection</h2>
 <br>
 
-  <form action="/Complaint" method="post" class="jumbotron">
-
- 
+  <form action="/ScheduleCollection" method="post" class="jumbotron">
 
     <div class="form-group">
         <label for="exampleFormControlInput1" class="font-weight-bold">User Info</label>
       <input type="email" class="form-control" id="email"  value={{current_user.email}} name="email" required>
-    
     </div>
-    <div class="form-group">
-        <label for=" Email1msg" class="font-weight-bold">Message</label>
-      <textarea class="form-control"  placeholder="Explain your complaint here" rows="5" name="message" style="width: 400px; height: 96px;" required></textarea>
-      </div>
 
     <div class="form-group">
-      
-      <input type="date" class="form-control" name="date" placeholder="date" required>
-    
+        <label for="collectionDate" class="font-weight-bold">Collection Date</label>
+      <input type="date" class="form-control" name="collectionDate" placeholder="date" required>
     </div>
-    
+
     <div class="form-group">
-      
-        <label for="exampleFormControlFile1"class="font-weight-bold" >Upload Image</label>
-        <input type="file" class="form-control-file" id="exampleFormControlFile1" required>
-      </div>
-    <button type="submit" class="btn btn-success btn-sm btn-block" onclick="return confirm('Complaint received successsfully')">Submit</button>
+        <label for="collectionTime" class="font-weight-bold">Collection Time</label>
+      <input type="time" class="form-control" name="collectionTime" required>
+    </div>
+
+    <div class="form-group">
+        <label for="exampleFormControlFile1"class="font-weight-bold" >Upload Image (Optional)</label>
+        <input type="file" class="form-control-file" id="exampleFormControlFile1">
+    </div>
+
+    <button type="submit" class="btn btn-success btn-sm btn-block" onclick="return confirm('Collection scheduled successfully')">Schedule</button>
     
-     
   </div>
   </form>
   
@@ -65,12 +61,7 @@ Complaints|WMS
   </div>
   
   
-  
-  
 
  
-
-
-
 
 {% endblock body %}
