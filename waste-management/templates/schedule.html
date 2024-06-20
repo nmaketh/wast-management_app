@@ -47,6 +47,11 @@ Schedule Collection|WMS
     </div>
 
     <div class="form-group">
+        <label for="scheduleDetails" class="font-weight-bold">Schedule Details</label>
+        <input type="text" class="form-control" name="scheduleDetails" required>
+    </div>
+
+    <div class="form-group">
         <label for="exampleFormControlFile1"class="font-weight-bold" >Upload Image (Optional)</label>
         <input type="file" class="form-control-file" id="exampleFormControlFile1">
     </div>
@@ -59,9 +64,14 @@ Schedule Collection|WMS
   </div>
   
   </div>
-  
-  
 
- 
-
+{% for schedule in schedules %}
+  <div class="schedule-details">
+    <p>Email: {{ schedule.email }}</p>
+    <p>Message: {{ schedule.message }}</p>
+    <p>Date: {{ schedule.date }}</p>
+    <p>Image: {{ schedule.image }}</p>
+  </div>
+{% endfor %}
+  
 {% endblock body %}

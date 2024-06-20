@@ -6,6 +6,17 @@ from flask_login import UserMixin, LoginManager
 from werkzeug.security import generate_password_hash,check_password_hash
 from flask_login import login_user,logout_user,login_required,current_user
 from flask_mail import Mail
+from flask import Flask
+import os
+
+# Get the absolute path of the current file
+current_file_path = os.path.abspath(__file__)
+
+# Get the directory containing the current file
+current_directory = os.path.dirname(current_file_path)
+
+# Create a Flask app and provide the path to the directory containing the templates directory
+app = Flask(__name__, template_folder=current_directory + '/templates')
 #db connection
 app=Flask(__name__)
 app.secret_key='sjbit'
@@ -139,6 +150,7 @@ def admin():
     }
     collections = Collection.query.all()  # Assuming you have a Collection model
     return render_template('admin.html', system=system, collections=collections)
+    
 @app.route('/schedule', methods=['POST', 'GET'])
 @login_required
 def schedule():
