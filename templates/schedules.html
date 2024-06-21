@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Schedules</title>
+</head>
+<body>
+    <h1>Schedules</h1>
+    <table>
+        <tr>
+            <th>Email</th>
+            <th>Message</th>
+            <th>Date</th>
+            <th>Image</th>
+        </tr>
+        {% for schedule in schedules %}
+        <tr>
+            <td>{{ schedule.email }}</td>
+            <td>{{ schedule.message }}</td>
+            <td>{{ schedule.date }}</td>
+            <td>{{ schedule.image }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
